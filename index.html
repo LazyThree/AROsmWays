@@ -10,6 +10,7 @@
         <script type='text/javascript' src='index.js'></script>
         <script type='text/javascript' src='osm.js'></script>
         <script type='text/javascript' src='osmway.js'></script>
+        <script type='text/javascript' src='click.js'></script>
         <style type='text/css'>
         #status {
             font-family: Roboto, sans-serif;
@@ -21,16 +22,7 @@
             font-weight: bold;
         }
         </style>
-        <script>
-                
-            document.getElementById("go").addEventListener("click", e=> {
-            const lat = document.getElementById('lat').value;
-            const lon = document.getElementById('lon').value;
-            const minacc = document.getElementById('minacc').value;
-            const el = document.querySelector("a-camera");
-            el.setAttribute('gps-new-camera', { simulateLatitude: lat, simulateLongitude: lon, positionMinAccuracy: minacc } );
-});
-    </script>
+
     </head>
     <body style='margin: 0; overflow: hidden'>
         <div id='setloc' style='position:absolute; left: 10px; bottom: 2%; z-index:999; background-color: blue; color: white; padding: 10px'>
