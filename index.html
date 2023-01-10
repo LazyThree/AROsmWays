@@ -21,8 +21,22 @@
             font-weight: bold;
         }
         </style>
+        <script>
+            document.getElementById("go").addEventListener("click",e=>{
+                const lat = document.getElementById('lat').value;
+                const lon = document.getElementById('lon').value;
+                const minacc = document.getElementById('minacc').value;
+
+                el.setAttribute('gps-new-camera',{simulateLatitude:lat,simulateLongitude:lon,positionMinAccuracy:minacc});
+            })
+        </script>
     </head>
     <body style='margin: 0; overflow: hidden'>
+        <div id='setloc' style='position:absolute; left: 10px; bottom: 2%; z-index:999; background-color: blue; color: white; padding: 10px'>
+            Lat:<input id="lat" value="51.049" /> 
+            Lon: <input id="lon" value="-0.723"/> 
+            Min Acc: <input id='minacc' value='1000' /> <input type='button' id='go' value='go' />
+        </div>
         <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'>
             <div id='status'></div>
             <a-camera gps-new-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' position='0 20 0' wasd-controls='acceleration: 1300'></a-camera>
