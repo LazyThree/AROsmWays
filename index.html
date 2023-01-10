@@ -3,7 +3,7 @@
     <head>
         <meta charset='utf-8' />
         <title>AR.js osm example</title>
-        <script src="aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <!-- Assumes AR.js build is in the 'AR.js' directory -->
         <script type='text/javascript' src='ar-threex-location-only.js'></script>
         <script type='text/javascript' src='aframe-ar.js'></script>
@@ -21,18 +21,6 @@
             font-weight: bold;
         }
         </style>
-        <script>
-
-            function mupdate()
-            {
-                var camera = document.querySelector('a-camera');
-                camera.setAttribute('gps-new-camera',
-                {
-                    simulateLatitude:50.50,
-                    simulateLongitude:1.05,
-                })
-            }
-        </script>
     </head>
     <body style='margin: 0; overflow: hidden'>
         <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'>
