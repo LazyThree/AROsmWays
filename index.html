@@ -1,29 +1,32 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-<title>AR.js A-Frame</title>
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-<!-- Assumes AR.js build is in the 'AR.js' directory -->
-<script type='text/javascript' src='ar-threex-location-only.js'></script>
-<script type='text/javascript' src='aframe-ar.js'></script>
-</head>
-<body>
-<!-- 
-This is using a simulated location. If testing on a mobile device, remove the 
-'simulateLatitude' and 'simulateLongitude' properties from 'gps-new-camera' and
-change the 'latitude' and 'longitude' properties to a location around 0.001 
-degrees from your real location.
--->
-<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
-	<a-camera gps-new-camera='gpsMinDistance: 5; simulateLatitude: 51.049; simulateLongitude: -0.723'></a-camera>
-<!-- 
-Use the third-party A-Frame 'look-at' component to make the text look at the
-camera.
--->
-	<a-text value='This will always face the user.' look-at='[gps-new-camera]' gps-new-entity-place="latitude: 51.05; longitude: -0.723" scale="50 50 50"></a-entity>
-</a-scene>
-	
-</body>
+    <head>
+        <meta charset='utf-8' />
+        <title>AR.js osm example</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <!-- Assumes AR.js build is in the 'AR.js' directory -->
+        <script type='text/javascript' src='ar-threex-location-only.js'></script>
+        <script type='text/javascript' src='aframe-ar.js'></script>
+        <script type='text/javascript' src='index.js'></script>
+        <script type='text/javascript' src='osm.js'></script>
+        <script type='text/javascript' src='osmway.js'></script>
+        <style type='text/css'>
+        #status {
+            font-family: Roboto, sans-serif;
+            color: white;
+            position: absolute;
+            top:50%;
+            left:calc(50% - 100px);
+            font-size: 150%;
+            font-weight: bold;
+        }
+        </style>
+    </head>
+    <body style='margin: 0; overflow: hidden'>
+        <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'>
+            <div id='status'></div>
+            <a-camera gps-new-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' position='0 20 0' wasd-controls='acceleration: 1300'></a-camera>
+            <a-entity osm></a-entity>
+        </a-scene>
+    </body>
 </html>
