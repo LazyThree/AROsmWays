@@ -34,7 +34,7 @@ AFRAME.registerComponent('osm', {
             alert('gps-new-camera component not initialised');
             return;
         }
-        fetch(`https://hikar.org/webapp/map?bbox=-0.733,51.039,-0.713,51.059&layers=ways&outProj=4326`)
+        fetch(`https://hikar.org/webapp/map?bbox=${lon - 0.01},${lat - 0.01},${lon + 0.01},${lat + 0.01}&layers=ways&outProj=4326`)
             .then(response => response.json())
             .then(json => {
                 const drawProps = {
