@@ -43,8 +43,8 @@
                 index = 0;
                 function AddLat()
                 {
-                    let curlat = curlat + 0.001*index;
-                    let curlon = curlon + 0.001*index;
+                    curlat = curlat + 0.001*index;
+                    curlon = curlon + 0.001*index;
                     el.setAttribute('gps-new-camera', { simulateLatitude: curlat, simulateLongitude: curlon, positionMinAccuracy: minacc } );
                     el.update();
                     if(index%10==0)
