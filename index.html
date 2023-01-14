@@ -35,6 +35,27 @@
             <a-camera gps-new-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' position='0 20 0' wasd-controls='acceleration: 1300'></a-camera>
             <a-entity osm></a-entity>
         </a-scene>
+        <script>
+                const el = document.querySelector("[gps-new-camera]");
+                let curlat = 51.040;
+                let curlng = -0.710;
+                const minacc = 100;
+                index = 0;
+                function AddLat()
+                {
+                    let curlat = lat + 0.001*index;
+                    let curlon = lon + 0.001*index;
+                    el.setAttribute('gps-new-camera', { simulateLatitude: curlat, simulateLongitude: curlon, positionMinAccuracy: minacc } );
+                    if(index%10==0)
+                    {
+                        console.log("当前纬度为"+String(curlat));
+                        console.log("当前经度为"+String(curlon));
+                    }
+                    index+=1;
+                }
 
+                setInterval(AddLat,100);
+    
+        </script>
     </body>
 </html>
