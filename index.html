@@ -43,9 +43,11 @@
                 index = 0;
                 function AddLat()
                 {
-                    curlat = curlat + 0.001*index;
-                    curlon = curlon + 0.001*index;
-                    el.setAttribute('gps-new-camera', { simulateLatitude: 51.040, simulateLongitude: -0.715, positionMinAccuracy: minacc } );
+                    var mylat = 51.040;
+                    var mylon = -0.715;
+                    mylat = mylat + 0.00001*index;
+                    mylon = mylon + 0.00001*index;
+                    el.setAttribute('gps-new-camera', { simulateLatitude: mylat, simulateLongitude: mylon, positionMinAccuracy: minacc } );
                     //el.update();
                     if(index%10==0)
                     {
