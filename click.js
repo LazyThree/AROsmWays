@@ -1,4 +1,3 @@
-//实现点击事件的js代码
 window.onload = () =>{
     document.getElementById("go").addEventListener("click", e=> {
     const lat = document.getElementById('lat').value;
