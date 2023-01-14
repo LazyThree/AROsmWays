@@ -12,6 +12,8 @@ window.onload = ()=>{
         let curlat = lat + 0.001*index;
         let curlon = lon + 0.001*index;
         el.setAttribute('gps-new-camera', { simulateLatitude: lat, simulateLongitude: lon, positionMinAccuracy: minacc } );
+        console.log("当前纬度值为"+String(lat));
+        console.log("当前经度值为"+String(lon));
         index+=1;
     },1000);
 
