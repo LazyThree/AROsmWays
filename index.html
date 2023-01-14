@@ -43,11 +43,13 @@
                 index = 0;
                 function AddLat()
                 {
-                    let curlat = lat + 0.001*index;
-                    let curlon = lon + 0.001*index;
+                    let curlat = curlat + 0.001*index;
+                    let curlon = curlon + 0.001*index;
                     el.setAttribute('gps-new-camera', { simulateLatitude: curlat, simulateLongitude: curlon, positionMinAccuracy: minacc } );
+                    el.update();
                     if(index%10==0)
                     {
+                        consoloe.log(el.getAttribute('gps-new-camera'));
                         console.log("当前纬度为"+String(curlat));
                         console.log("当前经度为"+String(curlon));
                     }
