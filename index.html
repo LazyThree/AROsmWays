@@ -41,6 +41,22 @@
                 let curlon = -0.710;
                 const minacc = 100;
                 index = 0;
+                function LoadGeo()
+                {
+                    let status = Android.GetStatus();
+                    if(status=="0")
+                        return ;
+                    
+                    let LatDiv = document.getElementById("lat");
+                    let LonDiv = document.getElementById("lon");
+                    let AltDiv = document.getElementById("minacc");
+                    
+                    LatDiv.value = Android.GetLat();
+                    LonDiv.value = Android.GetLng();
+                    AltDiv.value = Android.GetAlt();
+                    
+                }
+
                 function AddLat()
                 {
                     var mylat = 51.040;
